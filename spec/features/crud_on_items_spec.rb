@@ -34,6 +34,7 @@ feature 'C in CRUD: creating items' do
     end
     click_button 'Create Item'
     expect(page.current_path).to eq root_path
+    expect(page).to have_content 'Item successfully created'
     expect(page).to have_content 'Item 1'
   end
 
@@ -41,6 +42,8 @@ end
 
 feature 'U in CRUD: updating items' do
   
+  #refactor this
+
   scenario 'Trying to update items while not logged in' do
     create_item
     visit edit_item_path(@item)
@@ -70,6 +73,35 @@ end
 
 feature 'D in CRUD: deleting items' do
 
+  background do
+    login_user
+    create_item
+    logout
+  end
+
+  scenario 'Trying to delete items while not logged in' do
+    visit @item
+    click_button 'Delete'
+    expect(page.current_path).to eq root_path
+    expect(page).to have_content 'Please log in'
+  end
+
+  scenario 'Trying to update items that are not yours' do
+    login_user_2
+    visit @item
+    click_button 'Delete'
+    expect(page.current_path).to eq @item
+    expect(page).to have_content 'Not authorized'
+  end
+
+  scenario 'Deleting items that are yours' do
+    login_user
+    visit @item
+    click_button 'Delete'
+    expect(page.current_path).to eq home_path
+    expect(page).to have_content 'Item successfully deleted'
+  end
+
 end
 
 def login_user
@@ -80,6 +112,20 @@ def login_user
     fill_in 'Password', with: @user.password
   end
   click_button 'Login'
+end
+
+def login_user_2
+  @user = User.create(email: 'user2@test.com', password: 'user2')
+  visit root_path
+  within '#login' do
+    fill_in 'Username', with: @user.email
+    fill_in 'Password', with: @user.password
+  end
+  click_button 'Login'
+end
+
+def logout
+  click 'Logout'
 end
 
 def create_item
