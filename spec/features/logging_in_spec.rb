@@ -47,6 +47,7 @@ end
 
 feature 'Authorization for non-logged in users' do
 
+  # non-logged in user CANNOT buy
   scenario 'Trying to access home_path without loggin in' do
     visit home_path
     expect(page.current_path).to eq root_path
