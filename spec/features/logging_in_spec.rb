@@ -34,6 +34,13 @@ feature 'Logging in a user' do
 
 end
 
+feature 'Logging out a user' do
+  login_user
+  expect(page.current_path).to eq home_path
+  click_button 'Logout'
+  expect(page.current_path).to eq root_path
+end
+
 def login_user
   @user = User.create(email: 'user1@test.com', password: 'user1')
   visit root_path
