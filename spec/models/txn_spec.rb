@@ -1,5 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe Txn, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Txn do
+  
+  [:buyer_id, :seller_rating, :buyer_rating].each do |prop|
+    it { should respond_to prop }
+  end
+
+  it { should belong_to :user }
+  it { should belong_to :item }
+
 end
