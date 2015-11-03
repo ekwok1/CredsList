@@ -35,10 +35,46 @@ feature 'Logging in a user' do
 end
 
 feature 'Logging out a user' do
-  login_user
-  expect(page.current_path).to eq home_path
-  click_button 'Logout'
-  expect(page.current_path).to eq root_path
+
+  scenario 'User logs out' do
+    login_user
+    expect(page.current_path).to eq home_path
+    click_button 'Logout'
+    expect(page.current_path).to eq root_path
+  end
+
+end
+
+feature 'Authorization for non-logged in users' do
+
+  scenario 'Trying to access home_path without loggin in' do
+    visit home_path
+    expect(page.current_path).to eq root_path
+    expect(page).to have_content 'Please log in'
+  end
+
+end
+
+feature 'Authorization for logged-in users' do
+
+  background do
+    login_user
+  end
+
+  scenario 'Trying to access signup page while logged in' do
+    expect(page.current_path).to eq home_path
+    visit signup_path
+    expect(page.current_path).to eq home_path
+  end
+
+  scenario 'Trying to access login page while logged in' do
+    expect(page.current_path).to eq home_path
+    visit login_path
+    expect(page.current_path).to eq home_path
+    visit root_path
+    expect(page.current_path).to eq home_path
+  end
+
 end
 
 def login_user
@@ -50,3 +86,11 @@ def login_user
   end
   click_button 'Login'
 end
+
+
+
+
+
+
+
+
