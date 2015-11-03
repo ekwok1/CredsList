@@ -41,25 +41,28 @@ feature 'C in CRUD: creating items' do
 end
 
 feature 'U in CRUD: updating items' do
-  
-  #refactor this
+
+  background do
+    login_user
+    create_item
+    logout
+  end
 
   scenario 'Trying to update items while not logged in' do
-    create_item
     visit edit_item_path(@item)
     expect(page.current_path).to eq root_path
     expect(page).to have_content 'Please log in'
   end
 
   scenario 'Trying to update items that are not yours' do
-    create_item
+    login_user_2
     visit edit_item_path(@item)
     expect(page.current_path).to eq @item
     expect(page).to have_content 'Not authorized to edit'
   end
 
   scenario 'Updating items that are yours' do
-    create_item
+    login_user
     visit edit_item_path(@item)
     within 'form' do
       fill_in 'Name', with: 'Item 111'
