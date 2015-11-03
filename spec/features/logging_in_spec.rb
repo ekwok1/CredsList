@@ -45,24 +45,6 @@ feature 'Logging out a user' do
 
 end
 
-feature 'Authorization for non-logged in users' do
-
-  background do
-    login_user
-    create_item
-    logout
-  end
-
-  # move to other feature spec?
-  scenario 'Trying to buy while logged out' do
-    visit @item
-    click_button 'Buy Now'
-    expect(page.current_path).to eq login_path
-    expect(page).to have_content 'You need to be logged in to buy this item'
-  end
-
-end
-
 feature 'Authorization for logged-in users' do
 
   background do
@@ -78,7 +60,7 @@ feature 'Authorization for logged-in users' do
   scenario 'Trying to access login page while logged in' do
     visit login_path
     expect(page.current_path).to eq root_path
-    expect(page).to have_content 'You are already logged in's
+    expect(page).to have_content 'You are already logged in'
   end
 
 end
