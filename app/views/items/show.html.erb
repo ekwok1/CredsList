@@ -1,0 +1,6 @@
+<h1><%= @item.name %></h1>
+
+<%= link_to 'Edit Item', edit_item_path(@item) %>
+<%= link_to 'Delete Item', item_path(@item), method: :delete %>
+
+<button type="button" class="btn btn-default">Buy Now</button>

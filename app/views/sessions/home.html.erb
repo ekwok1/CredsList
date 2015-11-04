@@ -1,0 +1,19 @@
+<% flash.each do |key, value| %>
+  <% if key == "notice" %>
+    <%= content_tag :div, value, class: "text-center alert alert-warning" %>
+  <% elsif key == "alert" %>
+    <%= content_tag :div, value, class: "text-center alert alert-danger" %>
+  <% else %>
+    <%= content_tag :div, value, class: "text-center alert alert-success" %>
+  <% end %>
+<% end %>
+
+<div class="container-fluid">
+  <div>Listings</div>
+  <% @items.each do |item| %>
+    <div><%= link_to item.name, item_path(item) %></div>
+    <div><%= item.description %></div>
+    <div><%= item.price %></div>
+    <img src="<%= item.pic_url %>">
+  <% end %>
+</div>
