@@ -30,19 +30,16 @@ class SessionsController < ApplicationController
          session[:user_id] = found_user.id
          redirect_to user_path(found_user), flash: {success: "Welcome back #{found_user.email}!"}
        else
-         flash[:alert] = "Incorrect email or password"
-         redirect_to login_path
+         redirect_to login_path, alert: "Incorrect email or password"
        end
-     else
-       flash[:alert] = "Please enter an email and password"
-       redirect_to login_path
-     end
+    else   
+       redirect_to login_path, alert: "Please enter an email and password"
+    end
   end
 
   def logout
     session[:user_id] = nil
-    flash[:notice] = "Logged out"
-    redirect_to root_path
+    redirect_to root_path, notice: "Logged Out"
   end
 
 
