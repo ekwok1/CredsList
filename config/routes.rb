@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#attempt_login'
   delete 'logout', to: 'sessions#logout'
 
-  resources :users, only: [:edit, :show] do
+  resources :users, only: [:edit, :show, :update] do
     resources :items, except: [:index], shallow: true
   end
 
