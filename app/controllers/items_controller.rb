@@ -8,8 +8,7 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @user = User.find params[:user_id]
-    @item = @user.items.build
+    @item = Item.new
   end
 
   def create
@@ -22,11 +21,16 @@ class ItemsController < ApplicationController
     end
   end
 
-  def edit
+  def show
+    @item = Item.find params[:id]
   end
 
-  def show
+  def edit
+    @item = Item.find params[:id]
+    @user = @item.user
   end
+
+
 
   private
 

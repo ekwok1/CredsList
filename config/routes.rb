@@ -13,8 +13,10 @@ Rails.application.routes.draw do
 
   delete 'logout', to: 'sessions#logout'
 
+  get 'users/:id/items', to: 'users#index', as: 'items'
+
   resources :users, only: [:edit, :show] do
-    resources :items, shallow: true
+    resources :items, except: [:index], shallow: true
   end
 
 end
