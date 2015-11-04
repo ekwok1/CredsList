@@ -1,16 +1,23 @@
 <h2>Sign-Up</h2>
 
-<% if @user.errors.any? %>
-  <% @user.errors.full_messages.each do |error| %>
-    <p class = "text-danger"><%= error %></p>
+<div>
+  <% if @user.errors.any? %>
+    <% @user.errors.full_messages.each do |error| %>
+      <div class = "text-danger"><%= error %></div>
+    <% end %>
   <% end %>
-<% end %>
+</div>
 
-<%= form_for(@user, url: signup_path) do |f|%>
+<%= form_for(@user, url: signup_path, html:{class:"form-horizontal", role: "form"}) do |f|%>
+  
+  <%= f.label(:first_name) %>
+  <%= f.text_field(:first_name, autofocus: true) %>
 
+  <%= f.label(:last_name) %>
+  <%= f.text_field(:last_name) %>
 
   <%= f.label(:email) %>
-  <%= f.text_field(:email, autofocus: true) %>
+  <%= f.text_field(:email) %>
 
 
   <%= f.label(:password) %>

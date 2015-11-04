@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
 
+  before_action :prevent_signup_when_logged_in
   # the index of all the items
   def home
     @items = Item.all.order(id: :desc)
@@ -14,9 +15,8 @@ class SessionsController < ApplicationController
     @user = User.create user_params
     if @user.save
       session[:user_id] = @user.id
-      redirect_to user_path(@user)
+      redirect_to user_path(@user), flash: {success: "Successfully signed up!"}
     else
-      flash.now[:alert] = "Please try signing up again"
       render :signup
     end
   end
@@ -29,21 +29,18 @@ class SessionsController < ApplicationController
        found_user = User.where(email: params[:email]).first
        if found_user && found_user.authenticate(params[:password])
          session[:user_id] = found_user.id
-         redirect_to user_path(found_user), flash: {success: "Welcome back #{found_user.email}!"}
+         redirect_to user_path(found_user), flash: {success: "Welcome back #{found_user.first_name}!"}
        else
-         flash[:alert] = "Incorrect email or password"
-         redirect_to login_path
+         redirect_to login_path, alert: "Incorrect email or password"
        end
-     else
-       flash[:alert] = "Please enter an email and password"
-       redirect_to login_path
-     end
+    else   
+       redirect_to login_path, alert: "Please enter an email and password"
+    end
   end
 
   def logout
     session[:user_id] = nil
-    flash[:notice] = "Logged out"
-    redirect_to root_path
+    redirect_to root_path, notice: "Logged Out"
   end
 
 
@@ -51,7 +48,7 @@ class SessionsController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :profilepic_url)
+    params.require(:user).permit(:email, :password, :profilepic_url, :first_name, :last_name)
   end
 
 
