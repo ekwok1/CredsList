@@ -15,7 +15,7 @@ class ItemsController < ApplicationController
     @user = User.find params[:user_id]
     @item = @user.items.build item_params
     if @item.save
-      redirect_to user_items_path
+      redirect_to user_items_path, flash: {success: "Successfully created listing"}
     else
       render :new
     end
@@ -28,6 +28,16 @@ class ItemsController < ApplicationController
   def edit
     @item = Item.find params[:id]
     @user = @item.user
+  end
+
+  def update
+    @item = Item.find params[:id]
+    @item.update item_params
+    if @item.save
+      redirect_to root_path, flash: {success: "Successfully updated listing"}
+    else
+      render :edit
+    end
   end
 
 

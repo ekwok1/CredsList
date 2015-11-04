@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <h1>Edit Item</h1>
-  <%= form_for( @item, url: edit_item_path , html:{class:"form-horizontal", role:"form"}) do |f| %>
+  <%= form_for( @item, url: item_path(@item) , html:{class:"form-horizontal", role:"form"}) do |f| %>
     <div class="form-group">
       <%= f.label :name, class: "col-md-1"  %>
       <div class="col-sm-3">
