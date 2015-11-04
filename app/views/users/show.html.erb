@@ -19,7 +19,11 @@
       <%= link_to "Edit Profile", edit_user_path(@user) %>
     </div>
     <div class="col-xs-6">
-      test
+      <div class="activeListings">
+        <% @user.items.each do |item| %>
+          <div><%= item.name %></div>
+        <%end%>
+      </div>
     </div>
     <div class="col-xs-4">
       test
