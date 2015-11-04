@@ -2,11 +2,24 @@ class SessionsController < ApplicationController
 
   # the index of all the items
   def home
+    binding.pry
     @items = Item.all.order(id: :desc)
   end
 
   def signup
     @user = User.new
+  end
+
+  # creating a new user
+  def new
+    @user = User.create user_params
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to user_path(@user)
+    else
+      flash.now[:alert] = "Please try signing up again"
+      render :signup
+    end
   end
 
   def login
@@ -28,18 +41,13 @@ class SessionsController < ApplicationController
      end
   end
 
-
-# creating a new user
-  def new
-    @user = User.create user_params
-    if @user.save
-      session[:user_id] = @user.id
-      redirect_to user_path(@user)
-    else
-      flash.now[:alert] = "Please try signing up again"
-      render :signup
-    end
+  def logout
+    session[:user_id] = nil
+    flash[:notice] = "Logged out"
+    redirect_to home_path
   end
+
+
 
   private
 
