@@ -2,7 +2,6 @@ class UsersController < ApplicationController
 
   # admin new
 
-  
   def edit
   end
 

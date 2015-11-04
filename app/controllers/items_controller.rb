@@ -34,12 +34,17 @@ class ItemsController < ApplicationController
     @item = Item.find params[:id]
     @item.update item_params
     if @item.save
-      redirect_to root_path, flash: {success: "Successfully updated listing"}
+      redirect_to user_items_path(@item.user), flash: {success: "Successfully updated listing"}
     else
       render :edit
     end
   end
 
+  def destroy
+    @item = Item.find params[:id]
+    @item.destroy
+    redirect_to user_items_path(@item.user)
+  end
 
 
   private
