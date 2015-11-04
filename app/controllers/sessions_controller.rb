@@ -43,8 +43,6 @@ class SessionsController < ApplicationController
     redirect_to root_path, notice: "Logged Out"
   end
 
-
-
   private
 
   def user_params
