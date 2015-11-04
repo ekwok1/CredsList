@@ -53,13 +53,13 @@ feature 'Authorization for logged-in users' do
 
   scenario 'Trying to access signup page while logged in' do
     visit signup_path
-    expect(page.current_path).to eq root_path
-    expect(page).to have_content 'You already have an account'
+    expect(page.current_path).to eq user_path(@user)
+    expect(page).to have_content 'You are already logged in'
   end
 
   scenario 'Trying to access login page while logged in' do
     visit login_path
-    expect(page.current_path).to eq root_path
+    expect(page.current_path).to eq user_path(@user)
     expect(page).to have_content 'You are already logged in'
   end
 
