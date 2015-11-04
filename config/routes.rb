@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'sessions#home'
 
+  get 'home', to: 'sessions#home'
+
   get 'signup', to: 'sessions#signup'
 
   post 'signup', to: 'sessions#new'
@@ -14,5 +16,5 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :show] do
     resources :items, shallow: true
   end
-  
+
 end
