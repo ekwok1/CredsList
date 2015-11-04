@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-
   before_action :prevent_loginsignup_when_logged_in, except: [:home, :logout]
   # the index of all the items
   def home
