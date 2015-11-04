@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
 
+  before_action :prevent_signup_when_logged_in
   # the index of all the items
   def home
     @items = Item.all.order(id: :desc)
