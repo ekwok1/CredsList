@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   def prevent_signup_when_logged_in
     if session[:user_id]
-      redirect_to :back, alert: "You are already logged in"
+      redirect_to user_path(current_user), alert: "You are already logged in"
     end
   end
 
