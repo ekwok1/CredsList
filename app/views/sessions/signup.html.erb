@@ -9,9 +9,15 @@
 </div>
 
 <%= form_for(@user, url: signup_path, html:{class:"form-horizontal", role: "form"}) do |f|%>
+  
+  <%= f.label(:first_name) %>
+  <%= f.text_field(:first_name, autofocus: true) %>
+
+  <%= f.label(:last_name) %>
+  <%= f.text_field(:last_name) %>
 
   <%= f.label(:email) %>
-  <%= f.text_field(:email, autofocus: true) %>
+  <%= f.text_field(:email) %>
 
 
   <%= f.label(:password) %>
