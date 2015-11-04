@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div>Listings</div>
   <% @items.each do |item| %>
-    <div><%= item.name %></div>
+    <div><%= link_to item.name, item_path(item) %></div>
     <div><%= item.description %></div>
     <div><%= item.price %></div>
     <img src="<%= item.pic_url %>">
