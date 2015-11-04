@@ -28,7 +28,7 @@ class SessionsController < ApplicationController
        found_user = User.where(email: params[:email]).first
        if found_user && found_user.authenticate(params[:password])
          session[:user_id] = found_user.id
-         redirect_to user_path(found_user), flash: {success: "Welcome back #{found_user.email}!"}
+         redirect_to user_path(found_user), flash: {success: "Welcome back #{found_user.first_name}!"}
        else
          redirect_to login_path, alert: "Incorrect email or password"
        end
@@ -47,7 +47,7 @@ class SessionsController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :profilepic_url)
+    params.require(:user).permit(:email, :password, :profilepic_url, :first_name, :last_name)
   end
 
 
