@@ -2,7 +2,6 @@ class SessionsController < ApplicationController
 
   # the index of all the items
   def home
-    binding.pry
     @items = Item.all.order(id: :desc)
   end
 
@@ -29,7 +28,7 @@ class SessionsController < ApplicationController
     if params[:email].present? && params[:password].present?
        found_user = User.where(email: params[:email]).first
        if found_user && found_user.authenticate(params[:password])
-         session[:id] = found_user.id
+         session[:user_id] = found_user.id
          redirect_to user_path(found_user), flash: {success: "Welcome back #{found_user.email}!"}
        else
          flash[:alert] = "Incorrect email or password"
@@ -44,7 +43,7 @@ class SessionsController < ApplicationController
   def logout
     session[:user_id] = nil
     flash[:notice] = "Logged out"
-    redirect_to home_path
+    redirect_to root_path
   end
 
 
