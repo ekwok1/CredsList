@@ -22,6 +22,11 @@
       <div class="activeListings">
         <% @user.items.each do |item| %>
           <div><%= item.name %></div>
+          <div><%= item.description %></div>
+          <div><img src="<%= item.pic_url %>"></div>
+          <div><%= item.price %></div>
+          <%= link_to 'Destroy',  item,  method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to 'Edit', edit_item_path(item) %>
         <%end%>
       </div>
     </div>
