@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
 
   # admin new
+  def index
+    @users = User.all
+  end
 
   def edit
   end
