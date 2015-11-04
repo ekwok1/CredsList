@@ -6,27 +6,27 @@ feature 'Logging in a user' do
     visit login_path
   end
 
-  scenario 'Logging in with no username and no password' do
-    within '#login' do
-      fill_in 'Username', with: ''
+  scenario 'Logging in with no email and no password' do
+    within 'form' do
+      fill_in 'Email', with: ''
       fill_in 'Password', with: ''
     end
     click_button 'Login'
     expect(page.current_path).to eq login_path
-    expect(page).to have_content 'Please enter a username and password'
+    expect(page).to have_content 'Please enter an email and password'
   end
 
-  scenario 'Logging in with incorrect username and/or incorrect password' do
-    within '#login' do
-      fill_in 'Username', with: 'user1@test.com'
+  scenario 'Logging in with incorrect email and/or incorrect password' do
+    within 'form' do
+      fill_in 'Email', with: 'user1@test.com'
       fill_in 'Password', with: 'user111'
     end
     click_button 'Login'
     expect(page.current_path).to eq login_path
-    expect(page).to have_content 'Incorrect username or password'
+    expect(page).to have_content 'Incorrect email or password'
   end
 
-  scenario 'Logging in with correct username and password' do
+  scenario 'Logging in with correct email and password' do
     login_user
     expect(page.current_path).to eq @user # @user = profile page
     expect(page).to have_content 'Welcome back'
@@ -78,7 +78,7 @@ feature 'Authorization for logged-in users' do
   scenario 'Trying to access login page while logged in' do
     visit login_path
     expect(page.current_path).to eq root_path
-    expect(page).to have_content 'You are already logged in's
+    expect(page).to have_content 'You are already logged in'
   end
 
 end
@@ -86,8 +86,8 @@ end
 def login_user
   @user = User.create(email: 'user1@test.com', password: 'user1')
   visit root_path
-  within '#login' do
-    fill_in 'Username', with: @user.email
+  within 'form' do
+    fill_in 'Email', with: @user.email
     fill_in 'Password', with: @user.password
   end
   click_button 'Login'

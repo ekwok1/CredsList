@@ -1,5 +1,15 @@
 <h2>Login Page</h2>
 
+<% flash.each do |key, value| %>
+  <% if key == "notice" %>
+    <%= content_tag :div, value, class: "text-center alert alert-warning" %>
+  <% elsif key == "alert" %>
+    <%= content_tag :div, value, class: "text-center alert alert-danger" %>
+  <% else %>
+    <%= content_tag :div, value, class: "text-center alert alert-success" %>
+  <% end %>
+<% end %>
+
 <%= form_tag(login_path) do %>
 
   <%= label_tag(:email)%>
@@ -9,7 +19,7 @@
   <%= label_tag(:password)%>
   <%= password_field_tag(:password)%>
 
-  <%= submit_tag("Log in", class: "btn btn-primary") %>
+  <%= submit_tag("Login", class: "btn btn-primary") %>
 
 <% end %>
 
