@@ -38,7 +38,7 @@ feature 'Logging out a user' do
 
   scenario 'User logs out' do
     login_user
-    expect(page.current_path).to eq @user
+    expect(page.current_path).to eq user_path(@user)
     click_button 'Logout'
     expect(page.current_path).to eq root_path
   end

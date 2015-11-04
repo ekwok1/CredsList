@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+
+  # the index of all the items
   def home
     @items = Item.all.order(id: :desc)
   end
@@ -26,7 +28,23 @@ class SessionsController < ApplicationController
      end
   end
 
+
+# creating a new user
   def new
+    @user = User.create user_params
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to user_path(@user)
+    else
+      flash.now[:alert] = "Please try signing up again"
+      render :signup
+    end
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:email, :password, :profilepic_url)
   end
 
 
