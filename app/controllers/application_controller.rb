@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :current_user
 
-  def prevent_signup_when_logged_in
+  def prevent_loginsignup_when_logged_in
     if session[:user_id]
       redirect_to user_path(current_user), alert: "You are already logged in"
     end
