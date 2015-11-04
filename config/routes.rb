@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+#password reset
+resources :password_resets, only: [:new, :edit, :create, :update]
+
   root 'sessions#home'
 
   get 'home', to: 'sessions#home'

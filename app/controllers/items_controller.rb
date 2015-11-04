@@ -1,11 +1,6 @@
 class ItemsController < ApplicationController
 
-  before_action :confirm_logged_in
-
-  def index
-    @user = User.find params[:user_id]
-    @items = Item.where(user_id: @user.id)
-  end
+  before_action :confirm_logged_in, except: [:show]
 
   def new
     @item = Item.new
@@ -52,4 +47,5 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:name, :pic_url, :description, :price)
   end
+  
 end

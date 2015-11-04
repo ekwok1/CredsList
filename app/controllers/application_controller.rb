@@ -4,6 +4,12 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :current_user
 
+  def prevent_loginsignup_when_logged_in
+    if session[:user_id]
+      redirect_to user_path(current_user), alert: "You are already logged in"
+    end
+  end
+
   def confirm_logged_in
     unless session[:user_id]
       redirect_to login_path, alert: "You need to be logged in to buy this item"
