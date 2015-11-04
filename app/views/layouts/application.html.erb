@@ -8,25 +8,25 @@
 </head>
 <body>
 
-  <nav id="mainNav" class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <%= link_to "Home", root_path, class:"navbar-brand" %>
-      </div>
-
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right">
-          <% if current_user %>
-            <li><%= link_to "hello, #{current_user.email}", user_path(current_user)%></li>
-            <li><%= button_to "Logout", logout_path, method: :delete %></li>
-          <% else %>
-            <li><%= link_to "Login", login_path %></li>
-            <li><%= link_to "Signup", signup_path %></li>
-          <% end %>
-        </ul>
-      </div>
+<nav id="mainNav" class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <%= link_to "Home", root_path, class:"navbar-brand" %>
     </div>
-  </nav>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <% if current_user %>
+          <li><%= link_to "hello, #{current_user.email}", user_path(current_user)%></li>
+          <li><%= button_to "Logout", logout_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "Login", login_path %></li>
+          <li><%= link_to "Signup", signup_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
 
 <%= yield %>
 

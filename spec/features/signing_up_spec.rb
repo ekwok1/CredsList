@@ -8,32 +8,32 @@ feature 'Signing up a new user' do
 
   scenario 'Signing up with no email and no password' do
     visit signup_path
-    within ("#signup") do 
+    within ("form") do 
       fill_in 'Email', with: ''
       fill_in 'Password', with: ''
     end
-    click_button 'Create User'
+    click_button 'Signup'
     expect(page).to have_content 'Email can\'t be blank'
     expect(page).to have_content 'Password can\'t be blank'
   end
 
   scenario 'Signing up with non-unique email' do
     visit signup_path
-    within ("#signup") do
+    within ("form") do
       fill_in 'Email', with: 'user1@test.com'
       fill_in 'Password', with: 'user1'
     end
-    click_button 'Create User'
-    expect(page).to have_content 'Username has already been taken'
+    click_button 'Signup'
+    expect(page).to have_content 'Email has already been taken'
   end
 
   scenario 'Signing up successfully' do
     visit signup_path
-    within ("#signup") do
+    within ("form") do
       fill_in 'Email', with: 'user2@test.com'
       fill_in 'Password', with: 'user2'
     end
-    click_button 'Create User'
+    click_button 'Signup'
     expect(page).to have_content 'Successfully signed up!'
   end
 

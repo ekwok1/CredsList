@@ -14,9 +14,8 @@ class SessionsController < ApplicationController
     @user = User.create user_params
     if @user.save
       session[:user_id] = @user.id
-      redirect_to user_path(@user)
+      redirect_to user_path(@user), flash: {success: "Successfully signed up!"}
     else
-      flash.now[:alert] = "Please try signing up again"
       render :signup
     end
   end
