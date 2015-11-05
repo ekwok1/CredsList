@@ -1,0 +1,17 @@
+// Import boowatch variables
+@import "bootswatch/cosmo/variables";
+
+// Import bootstrap
+@import "bootstrap";
+
+// Import bootstrap cosmo
+@import "bootswatch/cosmo/bootswatch";
+
+@import "items";
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
