@@ -3,6 +3,10 @@ Rails.application.routes.draw do
 #password reset
 resources :password_resets, only: [:new, :edit, :create, :update]
 
+#for omniauth
+match "/auth/:provider/callback" => 'sessions#create'
+match "/signout" => "session#destroy", :as => :signout
+
   root 'sessions#home'
 
   get 'home', to: 'sessions#home'
