@@ -1,38 +1,25 @@
 <div class="container-fluid">
   <h1>Edit Item</h1>
-  <%= form_for( @item, url: item_path(@item) , html:{class:"form-horizontal", role:"form"}) do |f| %>
+  <%= form_for( @item, url: item_path(@item)) do |f| %>
     <div class="form-group">
-      <%= f.label :name, class: "col-md-1"  %>
-      <div class="col-sm-3">
-        <%= f.text_field :name, class: "form-control", autofocus:true %>
-      </div>
+      <%= f.label :name %>:
+      <%= f.text_field :name, class: "form-control", autofocus:true %>
     </div>
-
     <div class="form-group">
-      <%= f.label :pic_url, class: "col-md-1"  %>
-      <div class="col-sm-3">
-        <%= f.text_field :pic_url, class: "form-control" %>
-      </div>
+      <%= f.label :pic_url %>:
+      <%= f.text_field :pic_url, class: "form-control" %>
     </div>
-
     <div class="form-group">
-      <%= f.label :description, class: "col-md-1"  %>
-      <div class="col-sm-3">
-        <%= f.text_field :description, class: "form-control" %>
-      </div>
+      <%= f.label :description %>:
+      <%= f.text_field :description, class: "form-control" %>
     </div>
-
     <div class="form-group">
-      <%= f.label :price, class: "col-md-1"  %>
-      <div class="col-sm-3">
-        <%= f.number_field :price, class: "form-control", step: 0.01, value: number_with_precision(f.object.price, precision: 2) %>
-      </div>
+      <%= f.label :price %>:
+      <%= f.number_field :price, class: "form-control", step: 0.01, value: number_with_precision(f.object.price, precision: 2) %>
     </div>
-
-    <div class="actions col-sm-offset-1">
+    <div class="buttonHolder">
       <%= f.submit class: "btn btn-primary" %>
       <%= link_to 'Cancel', :back, class: "btn btn-default" %>
     </div>
-
   <% end %>
 </div>
