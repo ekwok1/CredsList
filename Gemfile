@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.4'
 gem 'dotenv-rails', :require => 'dotenv/rails-now'
 gem 'coinbase'
+gem 'omniauth'
 gem 'omniauth-coinbase'
 # Use postgresql as the database for Active Record
 gem 'pg'
