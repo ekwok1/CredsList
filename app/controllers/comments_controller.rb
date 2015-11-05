@@ -4,6 +4,7 @@ class CommentsController < ApplicationController
     @comment = @item.comments.build comment_params
     if @comment.save
       @comment.update(user_id: @item.user.id)
+      @comment.update(first_name: @item.user.first_name)
       render json: @comment
     else
       render json: {errors: @comment.errors.full_messages}
