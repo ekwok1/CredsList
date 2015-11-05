@@ -46,10 +46,14 @@
       </div>    
 <!--       vv code for comments vv -->
       <div class="row">
+        <div id="errors">
+          
+        </div>
         <%= form_for( @comment, url: item_path(@item), html:{class: "form-horizontal", role: "form"}) do |f| %>
           <div class="form-group">
             <%= f.label :content, class: "control-label col-sm-2" %>
             <%= f.text_field :content, class: "form-control col-sm-6" %>
+            <%= f.text_field :item, class: "form-control col-sm-6 hidden", value: params[:id] %>
             <%= f.submit class: "btn btn-primary" %>
           </div>
         <% end %>
