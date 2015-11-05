@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
+gem 'dotenv-rails', :require => 'dotenv/rails-now'
 gem 'coinbase'
 gem 'omniauth-coinbase'
 # Use postgresql as the database for Active Record
@@ -45,6 +46,7 @@ group :development, :test do
   gem 'shoulda'
   gem 'capybara'
   gem 'launchy'
+
 end
 
 group :development do
