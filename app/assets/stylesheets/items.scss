@@ -1,3 +1,48 @@
 // Place all the styles related to the items controller here.
-// They will automatically be included in application.css.
+// They will automatically be included in application.css.scss
 // You can use Sass (SCSS) here: http://sass-lang.com/
+h1, label {
+  text-align: center;
+}
+
+form {
+  margin: 0 auto;
+  padding: 2px;
+  width: 500px;
+}
+
+.btn {
+  margin: 5px;
+}
+
+.sellerPic {
+  margin: 5px;
+  padding: 10px;
+  border-radius: 40px;
+}
+ #sellerPic {
+  border-radius: 30px;
+ }
+
+.buttonHolder, .acceptedPay, .sellerName, .listingTitle, .row {
+  text-align: center;
+}
+
+.payIcon {
+  height: 50px;
+  width: 50px;
+}
+
+.listingTitle {
+  font-weight: bold;
+  font-family: impact;
+}
+
+.productImg {
+  display: block;
+  margin: auto;
+}
+
+.descripTitle, .commentTitle, .newComment {
+  font-weight: bold;
+}

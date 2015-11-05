@@ -21,7 +21,7 @@
     <div class="col-xs-6">
       <div class="activeListings">
         <% @user.items.each do |item| %>
-          <div><%= link_to item.name, item_path(item) %></div>
+          <div><%= link_to item.name, item_path() %></div>
           <div><%= item.description %></div>
           <div><img src="<%= item.pic_url %>"></div>
           <div><%= item.price %></div>
