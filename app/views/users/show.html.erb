@@ -21,7 +21,7 @@
     <div class="col-xs-6">
       <div class="activeListings">
         <% @user.items.each do |item| %>
-          <div><%= item.name %></div>
+          <div><%= link_to item.name, item_path(item) %></div>
           <div><%= item.description %></div>
           <div><img src="<%= item.pic_url %>"></div>
           <div><%= item.price %></div>
@@ -31,7 +31,12 @@
       </div>
     </div>
     <div class="col-xs-4">
-      test
+      <% @user.txns.each do |txn| %>
+        <!-- need jQuery here. When click on txn id, toggle down to get description -->
+        <div class="txnDescrip"><%= txn.id %></div>
+      <%end%>
+
+
     </div>
   </div>
 </div>
