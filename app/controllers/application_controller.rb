@@ -12,10 +12,17 @@ class ApplicationController < ActionController::Base
 
   def confirm_logged_in
     unless session[:user_id]
-      redirect_to login_path, alert: "You need to be logged in to buy this item"
+      redirect_to login_path, alert: "You need to be logged in to view this page"
     end
   end
 
+  def ensure_correct_user
+    @user = User.find session[:user_id]
+    @item = Item.find params[:id]
+    unless session[:user_id] == @item.user.id
+      redirect_to @user, alert: "Not authorized"
+    end
+  end
 
   def current_user
     return unless session[:user_id]

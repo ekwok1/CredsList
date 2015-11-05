@@ -26,6 +26,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    ensure_correct_user
     @item = Item.find params[:id]
     @user = @item.user
   end
@@ -41,6 +42,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    ensure_correct_user
     @item = Item.find params[:id]
     @item.destroy
     redirect_to user_path(@item.user)
