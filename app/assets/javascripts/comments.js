@@ -2,9 +2,9 @@ $(function() {
   $("#new_comment").on('submit', function(e) {
     e.preventDefault();
 
-    var content = $('#comment_comment').val();
+    var comment = $('#comment_comment').val();
     var item_id = $('#comment_item').val();
-    var data = { comment: { content: content } };
+    var data = { comment: { comment: comment } };
 
     $.ajax({
       type: 'post',
@@ -17,7 +17,7 @@ $(function() {
           $('#errors').append('<div>'+err+'</div>');
         });
       } else {
-        $('#comments').prepend('sup');
+        $('#comments').prepend('<div>'+res.comment+'</div>');
       }
     });
   });

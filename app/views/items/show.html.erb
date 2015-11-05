@@ -59,7 +59,9 @@
         <% end %>
 
         <div id="comments">
-          
+          <% @item.comments.each do |c| %>
+            <div><%= c.comment %></div>
+          <% end %>
         </div>
 
       </div>
