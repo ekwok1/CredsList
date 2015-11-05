@@ -10,7 +10,8 @@ class ItemsController < ApplicationController
     @user = User.find params[:user_id]
     @item = @user.items.build item_params
     if @item.save
-      redirect_to user_items_path, flash: {success: "Successfully created listing"}
+      # create a transaction sql query
+      redirect_to user_path(@user), flash: {success: "Successfully created listing"}
     else
       render :new
     end
@@ -29,7 +30,7 @@ class ItemsController < ApplicationController
     @item = Item.find params[:id]
     @item.update item_params
     if @item.save
-      redirect_to user_items_path(@item.user), flash: {success: "Successfully updated listing"}
+      redirect_to user_path(@item.user), flash: {success: "Successfully updated listing"}
     else
       render :edit
     end
@@ -38,7 +39,7 @@ class ItemsController < ApplicationController
   def destroy
     @item = Item.find params[:id]
     @item.destroy
-    redirect_to user_items_path(@item.user)
+    redirect_to user_path(@item.user)
   end
 
 

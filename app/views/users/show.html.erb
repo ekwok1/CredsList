@@ -8,3 +8,36 @@
   <% end %>
 <% end %>
 
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-2">
+      <img src="<%= @user.profilepic_url %>" alt="Profile Picture" class="profilePicture">
+      <div class="firstName"><%= @user.first_name %></div>
+      <div class="lastName"><%= @user.last_name %></div>
+      <div class="sellerRating">stars</div>
+      <div class="buyerRating">stars</div>
+      <%= link_to "Edit Profile", edit_user_path(@user) %>
+    </div>
+    <div class="col-xs-6">
+      <div class="activeListings">
+        <% @user.items.each do |item| %>
+          <div><%= link_to item.name, item_path(item) %></div>
+          <div><%= item.description %></div>
+          <div><img src="<%= item.pic_url %>"></div>
+          <div><%= item.price %></div>
+          <%= link_to 'Destroy',  item,  method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to 'Edit', edit_item_path(item) %>
+        <%end%>
+      </div>
+    </div>
+    <div class="col-xs-4">
+      <% @user.txns.each do |txn| %>
+        <!-- need jQuery here. When click on txn id, toggle down to get description -->
+        <div class="txnDescrip"><%= txn.id %></div>
+      <%end%>
+
+
+    </div>
+  </div>
+</div>
+
