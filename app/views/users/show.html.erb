@@ -12,7 +12,7 @@
       <div class="activeListings">
         <h2>Listings</h2>
         <% @user.items.each do |item| %>
-          <div><%= link_to item.name, item_path() %></div>
+          <div><%= link_to item.name, item_path(item) %></div>
           <div><%= item.description %></div>
           <div><img src="<%= item.pic_url %>"></div>
           <div>$<%= item.price %></div>
