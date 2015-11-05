@@ -45,8 +45,9 @@ class ItemsController < ApplicationController
   def destroy
     ensure_correct_user
     @item = Item.find params[:id]
+    binding.pry
     @item.destroy
-    redirect_to user_path(@item.user)
+    redirect_to user_path(item.user)
   end
 
 
