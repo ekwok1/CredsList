@@ -9,10 +9,28 @@
 
 @import "items";
 @import "users";
+@import "sessions";
 
 html {
   box-sizing: border-box;
 }
+
+body {
+  font-family: 'Raleway', sans-serif;
+  background-image:
+    linear-gradient(
+      to right, 
+      #c2e59c,
+      #64b3f4
+    );
+}
+
+form {
+  margin: 0 auto;
+  padding: 2px;
+  width: 500px;
+}
+
 *, *:before, *:after {
   box-sizing: inherit;
 }

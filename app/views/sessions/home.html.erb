@@ -1,9 +1,36 @@
 <div class="container-fluid">
-  <div>Listings</div>
-  <% @items.each do |item| %>
-    <div><%= link_to item.name, item_path(item) %></div>
-    <div><%= item.description %></div>
-    <div><%= item.price %></div>
-    <img src="<%= item.pic_url %>" alt="Profile Picture">
-  <% end %>
+  <h2>Listings</h2>
+  <hr>
+  <div class="col-xs-2">
+    <p>
+    Deep sea smelt weatherfish largemouth bass river shark electric knifefish, glass catfish, slender mola sheepshead; cuchia, sand diver bonito flagfin, barreleye zebra loach. Handfish Celebes rainbowfish silver carp herring smelt; candlefish South American Lungfish stonecat sea toad bighead carp. Hake nurseryfish European minnow ray goldspotted killifish alooh pike pelagic cod elver northern lampfish! Asian carps whalefish southern Dolly Varden grunt sculpin sauger, Pacific argentine panga leatherjacket ropefish temperate bass. Molly Miller rock cod eel cod regal whiptail catfish limia red snapper southern flounder eel cod megamouth shark. Orangespine unicorn fish glass catfish temperate perch bluntnose minnow. Poacher mudskipper longfin Reedfish, "bramble shark bango wallago." Ribbonfish Bigscale pomfret thornfish, lumpsucker lightfish píntano bamboo shark armoured catfish, bangus scorpionfish topminnow, Old World knifefish.
+    </p>
+    <p>
+    Kanyu channel catfish dartfish; tapetail, southern smelt; atka mackerel brook lamprey. French angelfish; perch longneck eel, coley sailback scorpionfish, black dragonfish, salamanderfish, chubsucker. Sea lamprey, squirrelfish damselfish rock bass, molly. Flatfish opaleye, yellowtail snapper sea raven chum salmon atka mackerel sixgill ray darter. Silver carp river shark skipjack tuna Colorado squawfish.
+    </p>
+    <p>
+    Staghorn sculpin zebra turkeyfish barfish Red salmon atka mackerel Colorado squawfish. Wormfish porcupinefish Redhorse sucker: candlefish giant wels sea bass surfperch.
+    </p>
+  </div>
+  <div class="col-xs-8">
+    <% @items.each do |item| %>
+      <div id=""><%= link_to item.name, item_path(item) %></div>
+      <div><%= item.description %></div>
+      <div><%= item.price %></div>
+      <div>
+        <img src="<%= item.pic_url %>" alt="Profile Picture">
+      </div>
+    <% end %>
+  </div>
+  <div class="col-xs-2">
+    <p>
+    River shark pirate perch sheatfish Sundaland noodlefish. Whitetip reef shark, coolie loach Arctic char crevice kelpfish smalltooth sawfish, cobia flagblenny burrowing goby: cowfish; nase frogfish northern lampfish. Sand tiger thornfish long-finned pike; paperbone finback cat shark, slender barracudina redside ridgehead kanyu mustache triggerfish ghost carp. Firefish ghost flathead swallower longjaw mudsucker, airbreathing catfish longnose sucker. Deep sea bonefish, surfperch kissing gourami killifish thornfish priapumfish cusk-eel barracuda, unicorn fish gouramie eel. Loach catfish ribbonfish snook codling, nurseryfish electric ray shell-ear steelhead, bamboo shark, "kelp perch Moorish idol longjaw mudsucker," whitebait. Squeaker Shingle Fish eulachon round stingray deep sea eel European minnow Chinook salmon lighthousefish burbot. Pelican eel tarwhine Antarctic cod darter Bitterling--bighead carp: California halibut lake chub Gila trout.
+    </p>
+    <p>
+    Pikehead blue-redstripe danio bull trout slickhead; red snapper Indian mul. Northern pike masu salmon ling yellow-and-black triplefin Alaska blackfish tube-eye trumpeter stickleback rivuline common carp, New World rivuline. Torrent catfish long-whiskered catfish sábalo grass carp piranha finback cat shark. Deep sea bonefish porgy Moorish idol, "footballfish sablefish Redfish sea catfish Australian grayling earthworm eel stoneroller minnow," cobbler Australian lungfish Mexican blind cavefish. Peacock flounder pejerrey, zebra lionfish Atlantic herring ocean perch; zebra tilapia white shark; longnose chimaera.
+    </p>
+    <p>
+    Squirrelfish prickleback redtooth triggerfish gulper needlefish brook trout. Bent-tooth three-toothed puffer sea bream ground shark bluntnose knifefish, gudgeon temperate ocean-bass kanyu betta, muskellunge channel bass boafish, slimy sculpin. Albacore finback cat shark, spookfish mola temperate bass kahawai menhaden triplefin blenny yellow-eye mullet masu salmon sweeper: lake whitefish. Giant danio masu salmon, Black tetra saber-toothed blenny arowana deepwater cardinalfish. Sixgill shark trumpeter yellow-edged moray buri armorhead catfish glass catfish anemonefish, "lefteye flounder jawfish." Northern clingfish pilot fish, mudminnow; giant danio, pirate perch.
+    </p>
+  </div>
 </div>
