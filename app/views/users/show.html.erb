@@ -20,20 +20,27 @@
     </div>
     <div class="col-xs-5">
       <div class="activeListings">
+        <h2>Listings</h2>
         <% @user.items.each do |item| %>
           <div><%= link_to item.name, item_path() %></div>
           <div><%= item.description %></div>
           <div><img src="<%= item.pic_url %>"></div>
-          <div><%= item.price %></div>
-          <%= link_to 'Destroy',  item,  method: :delete, data: { confirm: 'Are you sure?' } %>
-          <%= link_to 'Edit', edit_item_path(item) %>
+          <div>$<%= item.price %></div>
+          <% if current_user == @user %>
+            <div>
+              <%= link_to 'Edit', edit_item_path(item) %>
+              <%= link_to 'Destroy',  item,  method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+          <% end %>
+          <br>
         <%end%>
       </div>
     </div>
     <div class="col-xs-5">
+      <h2>Transactions</h2>
       <table class="table table-bordered">
         <thead>
-          <th>Seller</th>
+          <th>ID</th>
           <th>Buyer</th>
           <th>Item</th>
           <th>Seller Rating</th>
@@ -43,7 +50,7 @@
         <% @user.txns.each do |txn| %>
         <!-- need jQuery here. When click on txn id, toggle down to get description -->
           <tr>
-            <td> <%= txn.user.first_name %> </td>
+            <td> <%= txn.id %> </td>
 
             <% if txn.buyer_id %>
               <td> <%= User.where(id: txn.buyer_id)[0].first_name %> </td>
