@@ -3,7 +3,7 @@ $(function() {
     e.preventDefault();
 
     var comment = $('#comment_comment').val();
-    var item_id = $('#comment_item').val().to_i;
+    var item_id = $('#comment_item').val();
     var user_id = $('#comment_user_id').val();
     var data = { comment: { comment: comment, user_id: user_id } };
 
