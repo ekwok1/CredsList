@@ -33,11 +33,6 @@ form {
   width: 50px;
 }
 
-.listingTitle {
-  font-weight: bold;
-  font-family: impact;
-}
-
 .productImg {
   display: block;
   margin: auto;
@@ -45,4 +40,47 @@ form {
 
 .descripTitle, .commentTitle, .newComment {
   font-weight: bold;
+}
+
+#sellerInformation {
+  font-size: 190%;
+  font-family: 'Raleway', sans-serif;
+  color: black;
+  font-weight: bolder;
+}
+
+#sellerRating {
+  margin-bottom: 20px;
+  font-size: 130%;
+}
+
+#contactInformation, #acceptedPay {
+  font-size: 140%;
+  font-family: 'Raleway', sans-serif;
+  color: black;
+  font-weight: bolder;
+}
+
+#bitcoinImg, #sellerEmail {
+  margin-bottom: 20px;
+}
+
+#sellerName {
+  margin-top: 20px;
+}
+
+#sellerEmail, #sellerName {
+  font-size: 115%;
+}
+
+.profilePicture {
+  width: 100%;
+}
+
+#sellerRatingTitle {
+  font-weight: bolder;
+}
+
+#sellerBox {
+  border-right: 2px solid black;
 }
