@@ -1,6 +1,36 @@
-<h1><%= @item.name %></h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-3">
+      <img src="<%= @item.user.profilepic_url %>">
+      <div>
+        <span><%= @item.user.first_name %> <%= @item.user.last_name %></span>
+      </div>
 
-<%= link_to 'Edit Item', edit_item_path(@item) %>
-<%= link_to 'Delete Item', item_path(@item), method: :delete %>
+      <div>Payments Accepted:</div>
+      <img src="<%= asset_path( 'bitcoin.png' ) %>">
+      <button type="button" class="btn btn-default">Buy Now</button>
+    </div>
+    <div class="col-xs-9">
+      <div class="row">
+        <div class="col-xs-12">
+          <h1><%= @item.name %></h1>
+          <img src="<%= @item.pic_url %>" alt="Item Image">
+        </div>
+      </div>      
+      <div class="row">
+        <div>Description: </div>
+        <div><%= @item.description %></div>
+      </div>      
+      <div class="row">
+        <div>Comments: </div>
+        <div>"--Insert Form Here--"</div>
+      </div>
 
-<button type="button" class="btn btn-default">Buy Now</button>
+    </div>
+  </div>
+
+
+</div>
+
+
+

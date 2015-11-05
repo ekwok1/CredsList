@@ -12,7 +12,7 @@ resources :password_resets, only: [:new, :edit, :create, :update]
   post 'login', to: 'sessions#attempt_login'
   delete 'logout', to: 'sessions#logout'
 
-  resources :users, only: [:edit, :show] do
+  resources :users, only: [:edit, :show, :update] do
     resources :items, except: [:index], shallow: true
   end
 
