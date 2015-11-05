@@ -2,10 +2,8 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
-gem 'dotenv-rails', :require => 'dotenv/rails-now'
-gem 'coinbase'
-gem 'omniauth'
-gem 'omniauth-coinbase'
+
+gem 'omniauth-coinbase', git: 'https://github.com/coinbase/omniauth-coinbase.git'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
@@ -47,7 +45,7 @@ group :development, :test do
   gem 'shoulda'
   gem 'capybara'
   gem 'launchy'
-
+  gem 'dotenv-rails'
 end
 
 group :development do
