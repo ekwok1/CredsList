@@ -1,0 +1,40 @@
+// Import boowatch variables
+@import "bootswatch/cosmo/variables";
+
+// Import bootstrap
+@import "bootstrap";
+
+// Import bootstrap cosmo
+@import "bootswatch/cosmo/bootswatch";
+
+@import "items";
+@import "users";
+@import "sessions";
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+  background-image:
+    linear-gradient(
+      to right, 
+      #c2e59c,
+      #64b3f4
+    );
+}
+
+form {
+  margin: 0 auto;
+  padding: 2px;
+  width: 500px;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.alert {
+  margin-top: -22px;
+}

@@ -8,6 +8,38 @@
 </head>
 <body>
 
+<nav id="mainNav" class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <%= link_to "CredsList", root_path, class:"navbar-brand" %>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <% if current_user %>
+          <li><%= link_to "Hello, #{current_user.first_name}!", user_path(current_user)%></li>
+          <li><%= link_to "Buy", root_path %></li>
+          <li><%= link_to "Sell", new_user_item_path(current_user) %></li>
+          <li><%= link_to "Logout", logout_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "Login", login_path %></li>
+          <li><%= link_to "Signup", signup_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<% flash.each do |key, value| %>
+  <% if key == "notice" %>
+    <%= content_tag :div, value, class: "text-center alert alert-warning" %>
+  <% elsif key == "alert" %>
+    <%= content_tag :div, value, class: "text-center alert alert-danger" %>
+  <% else %>
+    <%= content_tag :div, value, class: "text-center alert alert-success" %>
+  <% end %>
+<% end %>
+
 <%= yield %>
 
 </body>

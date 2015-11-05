@@ -1,0 +1,52 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-3">
+      <div class="sellerPic">
+        <img id="sellerPic" src="<%= @item.user.profilepic_url %>">
+      </div>        
+      <div class="sellerName">
+        <span><%= @item.user.first_name %> <%= @item.user.last_name %></span>
+      </div>
+
+      <div class="acceptedPay">
+        Accepted Payments:
+      </div>
+      <div>
+        <img class="payIcon" src="<%= asset_path( 'bitcoin.png' ) %>">
+      </div>
+      <div>
+        <button type="button" class="btn btn-default">Buy Now</button>
+      </div>
+    </div>
+    <div class="col-xs-9">
+      <div class="row">
+        <div class="col-xs-12">
+          <h1 class="listingTitle"><%= @item.name %></h1>
+          <img class="productImg" src="<%= @item.pic_url %>" alt="Item Image">
+        </div>
+      </div>      
+      <div class="row">
+        <div class="descripTitle">Description: </div>
+        <div><%= @item.description %></div>
+      </div>      
+      <div class="row">
+        <div class="commentTitle">Comments: </div>
+          <div>
+          You want a guarantee, buy a toaster. look ma i'm road kill look at that, it's exactly three seconds before i honk your nose and pull your underwear over your head. here she comes to wreck the day. hey, maybe i will give you a call sometime. your number still 911? kinda hot in these rhinos. we're going for a ride on the information super highway. you see, in this world there's two kinds of people, my friend: those with loaded guns and those who dig. you dig. well, do you have anything to say for yourself? here. put that in your report!" and "i may have found a way out of here. brain freeze. it's because i'm green isn't it!
+          </div>
+          <div class="newComment">
+            ADD NEW COMMENT:
+          </div>
+          <div>
+            THIS WILL BE A FORM TO GENERATE NEW COMMENTS
+          </div>
+      </div>
+
+    </div>
+  </div>
+
+
+</div>
+
+
+

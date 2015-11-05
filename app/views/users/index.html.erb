@@ -1,0 +1,7 @@
+<h1><%= @user.email %>'s Items</h1>
+<% @items.each do |i| %>
+  <img src="<%= i.pic_url %>">
+  <div><%= link_to i.name, item_path(i) %></div>
+  <div><%= i.description %></div>
+  <div><%= i.price %></div>
+<% end %>

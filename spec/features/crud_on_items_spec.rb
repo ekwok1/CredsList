@@ -3,14 +3,14 @@ require 'rails_helper'
 feature 'R in CRUD: reading items' do
 
   scenario 'Accessing items while not logged in' do
-    visit home_path
-    expect(page.current_path).to eq home_path
+    visit root_path
+    expect(page.current_path).to eq root_path
   end
 
   scenario 'Accessing items while logged in' do
     login_user
-    visit home_path
-    expect(page.current_path).to eq home_path
+    visit root_path
+    expect(page.current_path).to eq root_path
   end
 
 end
@@ -18,9 +18,9 @@ end
 feature 'C in CRUD: creating items' do
 
   scenario 'Trying to create items while not logged in' do
-    visit new_item_path
+    click_button 'Create Item' # can we change this to Create Listing?
     expect(page.current_path).to eq root_path
-    expect(page).to have_content 'Please log in'
+    expect(page).to have_content 'You need to be logged in to create a listing'
   end
 
   scenario 'Creating item while logged in ' do
@@ -50,18 +50,19 @@ feature 'U in CRUD: updating items' do
 
   scenario 'Trying to update items while not logged in' do
     visit edit_item_path(@item)
-    expect(page.current_path).to eq root_path
-    expect(page).to have_content 'Please log in'
+    expect(page.current_path).to eq login_path
+    expect(page).to have_content 'You must be logged in to update listings'
   end
 
   scenario 'Trying to update items that are not yours' do
     login_user_2
     visit edit_item_path(@item)
-    expect(page.current_path).to eq @item
-    expect(page).to have_content 'Not authorized to edit'
+    click_button 'Edit Item'
+    expect(page.current_path).to eq root_path
+    expect(page).to have_content 'You are not authorized to edit this listing'
   end
 
-  scenario 'Updating items that are yours' do
+  scenario 'Updating items that belong to correct user' do
     login_user
     visit edit_item_path(@item)
     within 'form' do
@@ -69,6 +70,7 @@ feature 'U in CRUD: updating items' do
     end
     click_button 'Edit Item'
     expect(page.current_path).to eq root_path
+    expect(page).to have_content 'Successfully updated listing'
     expect(page).to have_content 'Item 111'
   end
 
@@ -85,24 +87,24 @@ feature 'D in CRUD: deleting items' do
   scenario 'Trying to delete items while not logged in' do
     visit @item
     click_button 'Delete'
-    expect(page.current_path).to eq root_path
-    expect(page).to have_content 'Please log in'
+    expect(page.current_path).to eq login_path
+    expect(page).to have_content 'You need to be logged in to delete a listing'
   end
 
-  scenario 'Trying to update items that are not yours' do
+  scenario 'Trying to delete items that are not yours' do
     login_user_2
     visit @item
     click_button 'Delete'
     expect(page.current_path).to eq @item
-    expect(page).to have_content 'Not authorized'
+    expect(page).to have_content 'You are not authorized to delete this listing'
   end
 
   scenario 'Deleting items that are yours' do
     login_user
     visit @item
     click_button 'Delete'
-    expect(page.current_path).to eq home_path
-    expect(page).to have_content 'Item successfully deleted'
+    expect(page.current_path).to eq root_path
+    expect(page).to have_content 'Successfully deleted listing'
   end
 
 end
