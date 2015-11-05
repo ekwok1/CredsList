@@ -10,8 +10,12 @@ class ItemsController < ApplicationController
     @user = User.find params[:user_id]
     @item = @user.items.build item_params
     if @item.save
-      # create a transaction sql query
-      redirect_to user_path(@user), flash: {success: "Successfully created listing"}
+      @txn = Txn.create(user_id: params[:user_id], item_id: @item.id)
+      if @txn.save
+        redirect_to user_path(@user), flash: {success: "Successfully created listing"}
+      else
+        render :new
+      end
     else
       render :new
     end

@@ -43,13 +43,10 @@ class SessionsController < ApplicationController
     redirect_to root_path, notice: "Logged Out"
   end
 
-
-
   private
 
   def user_params
     params.require(:user).permit(:email, :password, :profilepic_url, :first_name, :last_name)
   end
-
 
 end

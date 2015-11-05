@@ -18,7 +18,7 @@
       <div class="buyerRating">stars</div>
       <%= link_to "Edit Profile", edit_user_path(@user) %>
     </div>
-    <div class="col-xs-6">
+    <div class="col-xs-5">
       <div class="activeListings">
         <% @user.items.each do |item| %>
           <div><%= link_to item.name, item_path() %></div>
@@ -30,13 +30,44 @@
         <%end%>
       </div>
     </div>
-    <div class="col-xs-4">
-      <% @user.txns.each do |txn| %>
+    <div class="col-xs-5">
+      <table class="table table-bordered">
+        <thead>
+          <th>Seller</th>
+          <th>Buyer</th>
+          <th>Item</th>
+          <th>Seller Rating</th>
+          <th>Buyer Rating</th>
+        </thead>
+        <tbody>
+        <% @user.txns.each do |txn| %>
         <!-- need jQuery here. When click on txn id, toggle down to get description -->
-        <div class="txnDescrip"><%= txn.id %></div>
-      <%end%>
+          <tr>
+            <td> <%= txn.user.first_name %> </td>
 
+            <% if txn.buyer_id %>
+              <td> <%= User.where(id: txn.buyer_id)[0].first_name %> </td>
+            <% else %>
+              <td> Pending Listing </td>
+            <% end %>
 
+            <td> <%= txn.item.name %> </td>
+
+            <% if txn.seller_rating %>
+              <td> <%= txn.seller_rating %> </td>
+            <% else %>
+              <td> Pending Rating </td>
+            <% end %>
+
+            <% if txn.buyer_rating %>
+              <td> <%= txn.buyer_rating %> </td>
+            <% else %>
+              <td> Pending Rating </td>
+            <% end %>
+          </tr>
+        <%end%>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
