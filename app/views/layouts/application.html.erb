@@ -18,6 +18,8 @@
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
           <li><%= link_to "Hello, #{current_user.first_name}!", user_path(current_user)%></li>
+          <li><%= link_to "Buy", root_path %></li>
+          <li><%= link_to "Sell", new_user_item_path(current_user) %></li>
           <li><%= link_to "Logout", logout_path, method: :delete %></li>
         <% else %>
           <li><%= link_to "Login", login_path %></li>
