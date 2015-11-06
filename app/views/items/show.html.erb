@@ -39,9 +39,14 @@
           <h2><%= @item.name %></h2>
           <img class="productImg" src="<%= @item.pic_url %>" alt="Item Image">
         </div>
-      </div>      
-        <span><div class="descripTitle">Description: </div>
-        <div><%= @item.description %></div></span>  
+      </div>    
+
+<!--       long description here -->
+      <div class="descripTitle">Description: </div>
+      <div><%= @item.description %></div> 
+
+      <div class="itemPrice">Price: </div>
+      <div>$<%= @item.price %></div>
 <!--       vv code for comments vv -->
 <hr class="style-one">
       
@@ -52,7 +57,6 @@
         
         <%= form_for( @comment, url: item_path(@item)) do |f| %>
           <div class="form-group">
-            <%= f.label :comment, "Comments:", class: "control-label col-sm-2 align-center" %>
             <%= f.text_field :comment, class: "form-control col-sm-6" %>
             <%= f.text_field :item, class: "form-control col-sm-6 hidden", value: params[:id] %>
             <%= f.text_field :user_id, class: "form-control col-sm-6 hidden", value: @item.user.id %>
@@ -60,6 +64,32 @@
             <%= f.submit class: "btn btn-primary" %>
           </div>
         <% end %>
+        <div class="col-xs-3"></div>
+        
+        <div class="col-xs-6">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">Comments</h3>
+            </div>
+            <div id="comments" class="panel-body">
+              <% @comments = @item.comments.order(id: :asc) %>
+              <% @comments.each do |c| %>
+                <% u = User.where(id: c.user_id)[0] %>
+                <div><%= u.first_name %>: <%= c.comment %></div>
+                <hr id="commentSep">
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+<!--         <div id="comments" class="col-xs-6">
+          <% @comments = @item.comments.order(id: :asc) %>
+          <% @comments.each do |c| %>
+            <% u = User.where(id: c.user_id)[0] %>
+            <div><%= u.first_name %>: <%= c.comment %></div>
+          <% end %>
+        </div> -->
+        <div class="col-xs-3"></div>
 
         <!-- <div id="comments">
           <% @comments = @item.comments.order(id: :asc) %>

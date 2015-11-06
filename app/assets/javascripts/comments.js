@@ -18,7 +18,7 @@ $(function() {
           $('#errors').append('<div>'+err+'</div>');
         });
       } else {
-        $('#comments').prepend('<div>'+res.comment+'</div>');
+        $('#comments').append('<div>'+res.first_name+': '+res.comment+'</div>');
         $('#comment_comment').val("");
       }
     });
