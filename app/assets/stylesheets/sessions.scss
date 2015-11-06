@@ -10,6 +10,7 @@ h2 {
   margin: 0 0 24px; 
   text-align: center; 
   text-transform: uppercase;
+  text-shadow: 0 3px 0 #6FB9EA;
 }
 
 #mainRow {
@@ -17,22 +18,13 @@ h2 {
   margin-bottom: 2px;
 }
 
-
-// .individualListing {
-//   margin-bottom: 5px;
-// }
-
-// .individualListing:not(:last-child) {
-//   border-bottom: none;
-// }
-
 #itemName {
-  border-bottom: 1px solid #304352;
+  border-bottom: 3px solid #304352;
 }
 
 #name {
   font-size: 200%;
-  color: black;
+  color: #304352;
   font-weight: bolder;
 }
 
@@ -40,17 +32,30 @@ h2 {
   word-wrap: break-word;
 }
 
+.descripSeparation {
+  border: 2px solid #304352;
+}
+
 .imgDimension {
   max-height: 300px;
 }
 
-#descripPrice {
+// makes the hyperlink coloring disappear
+#itemDesc, #itemPrice {
+  margin-top: 2px;
+  margin-bottom: 2px;
   width: auto;
   max-height: 250px;
-  text-align: left;
-  color: black;
+  text-align: center;
+  color: #304352;
 }
 
-#descripPrice:hover {
-  text-decoration: none;
+#itemDesc {
+  font-style: italic;
+   border-bottom: #304352 3px solid;
+}
+
+#itemPrice {
+  font-weight: bolder;
+  font-size: 150%;
 }

@@ -18,16 +18,27 @@
               </div>
 
 
-              <div class="row" id="descripPrice">
+              <div class="row">
 
-                  <%= item.description %><br>
+
+                <div id="itemDesc">
+                  "<%= item.description %>"
+                </div>
+              </div>
+
+
+              <div class="row">
+                <div id="itemPrice">
                   $<%= item.price %>
+                </div>
+              </div> 
+
 
               </div>
-            </div>
+
 
             <div class="col-xs-9" id="itemPic">
-              <img class="imgDimension" src="<%= item.pic_url %>" alt="Profile Picture">
+              <img class="imgDimension" src="<%= item.pic_url %>" alt="Item">
             </div>
             
           </div>
