@@ -2,11 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-img {
-    max-width: 100%;
-    max-height: 100%;
-}
-
 h2 {
   color: #ffffff; 
   font-size: 62px; 
@@ -18,9 +13,18 @@ h2 {
 }
 
 #mainRow {
-  border: 5px #304352;
-  border-style: solid none;
+  border-bottom: 5px #304352 solid;
+  margin-bottom: 2px;
 }
+
+
+// .individualListing {
+//   margin-bottom: 5px;
+// }
+
+// .individualListing:not(:last-child) {
+//   border-bottom: none;
+// }
 
 #itemName {
   border-bottom: 1px solid #304352;
@@ -36,11 +40,14 @@ h2 {
   word-wrap: break-word;
 }
 
+.imgDimension {
+  max-height: 300px;
+}
+
 #descripPrice {
-  width: 207px;
-  height: auto;
-  line-height: 100px;
-  text-align: center;
+  width: auto;
+  max-height: 250px;
+  text-align: left;
   color: black;
 }
 
