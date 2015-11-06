@@ -28,6 +28,7 @@
       </div>
 
       <div>
+        <%= link_to 'See Profile', user_path(@item.user), class: "btn btn-primary" %>
         <button type="button" class="btn btn-default">Buy Now</button>
       </div>
     </div>
@@ -43,8 +44,8 @@
         <div><%= @item.description %></div></span>  
 <!--       vv code for comments vv -->
 <hr class="style-one">
+      
       <div class="row">
-
         <div id="errors">
           
         </div>
@@ -60,16 +61,15 @@
           </div>
         <% end %>
 
-
-        <div id="comments">
-          <% @comments = @item.comments.order(id: :desc) %>
+        <!-- <div id="comments">
+          <% @comments = @item.comments.order(id: :asc) %>
           <% @comments.each do |c| %>
             <% u = User.where(id: c.user_id)[0] %>
             <div class="comment-box">
-            <div><%= u.first_name %>: <%= c.comment %></div>
+              <div><%= u.first_name %>: <%= c.comment %></div>
             </div>
           <% end %>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>

@@ -18,11 +18,9 @@ $(function() {
           $('#errors').append('<div>'+err+'</div>');
         });
       } else {
-        $('.comment-box').prepend('<div>'+res.comment+'</div>');
-        // $('#comment_comment').val("");
+        $('#comments').prepend('<div>'+res.comment+'</div>');
+        $('#comment_comment').val("");
       }
     });
   });
 });
-
-// '<div>'+res.first_name+': '+res.comment+'</div>'
