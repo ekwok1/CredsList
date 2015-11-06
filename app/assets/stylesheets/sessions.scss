@@ -2,12 +2,20 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-h2 {
+
+h1 {
+  font-family: redressed;
+  font-size: 50px;
+  text-decoration: underline;
+}
+
+.login {
   color: #ffffff; 
-  font-size: 62px; 
-  font-weight: 800; 
-  line-height: 72px; 
-  margin: 0 0 24px; 
+  // font-size: 62px; 
+  font-size: 30px;
+  font-weight: 750; 
+  line-height: 20px; 
+  margin: 0 0 15px; 
   text-align: center; 
   text-transform: uppercase;
   text-shadow: 0 3px 0 #6FB9EA;
