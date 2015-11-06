@@ -1,0 +1,22 @@
+<div class="container-fluid">
+  <h1>CredsList</h1>
+  <h2 class="login">Login</h2>
+  <%= form_tag login_path do %>
+      <div class="form-group">
+        <%= label_tag :email, nil, class: "control-label" %>:
+        <%= text_field_tag :email, params[:email], autofocus: true, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= label_tag :password, nil, class: "control-label" %>:
+        <%= password_field_tag :password, params[:password], class: "form-control" %>
+      </div>
+      <div class="buttonHolder">
+        <%= submit_tag "Log in", id:"submit-user", class: "btn btn-primary" %>
+      </div>
+      <div><%= link_to "Don't have an account? Sign up here", signup_path%></div>
+      <div><%= link_to "Forgot Password?", nil %></div>
+  <% end %>
+</div>
+
+
+

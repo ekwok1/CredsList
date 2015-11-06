@@ -1,0 +1,26 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+h2 {
+  color: #ffffff; 
+  font-size: 60px;
+  font-weight: 800; 
+  line-height: 20px; 
+  margin: 0 0 15px; 
+  text-align: center; 
+  text-transform: uppercase;
+  text-shadow: 0 3px 0 #6FB9EA;
+}
+.leftPanel {
+  border-right: 2px black solid;
+}
+
+#profile {
+  // font-family: 'Raleway', sans-serif;
+  font-weight: bolder;
+
+}
+
+#sellerPic {
+  max-height: 200px;
+}
