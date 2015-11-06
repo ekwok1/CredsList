@@ -44,6 +44,7 @@
 <!--       vv code for comments vv -->
 <hr class="style-one">
       <div class="row">
+
         <div id="errors">
           
         </div>
@@ -54,9 +55,11 @@
             <%= f.text_field :comment, class: "form-control col-sm-6" %>
             <%= f.text_field :item, class: "form-control col-sm-6 hidden", value: params[:id] %>
             <%= f.text_field :user_id, class: "form-control col-sm-6 hidden", value: @item.user.id %>
+
             <%= f.submit class: "btn btn-primary" %>
           </div>
         <% end %>
+
 
         <div id="comments">
           <% @comments = @item.comments.order(id: :desc) %>
