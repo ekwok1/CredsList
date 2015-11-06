@@ -4,10 +4,12 @@ require 'rails_helper'
 feature "Forgotten passwords" do
   let(:user){ User.create(email:"test@test.com", password:"testing", profilepic_url: "testpic") }
 
-  before {visit login_path}
+  background do
+    visit login_path
+  end
 
   scenario "sends a user a single email" do
-    click_link "Forgot your password?"
+    click_link "Forgot password?"
     fill_in "Email", with: user.email
     click_button "Reset Password"
     expect {ActionMailer::Base.deliveries.count.to eq(1)}
@@ -15,7 +17,7 @@ feature "Forgotten passwords" do
 
   scenario "resets a password when following the email link" do
     # send password reset email and go to change password form
-    click_link "Forgot your password?"
+    click_link "Forgot password?"
     fill_in "Email", with: user.email
     click_button "Reset Password"
     open_email(user.email)
