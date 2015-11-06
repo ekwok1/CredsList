@@ -16,3 +16,34 @@ h2 {
   text-align: center; 
   text-transform: uppercase;
 }
+
+#mainRow {
+  border: 5px #304352;
+  border-style: solid none;
+}
+
+#itemName {
+  border-bottom: 1px solid #304352;
+}
+
+#name {
+  font-size: 200%;
+  color: black;
+  font-weight: bolder;
+}
+
+#itemName, .vertical-align {
+  word-wrap: break-word;
+}
+
+#descripPrice {
+  width: 207px;
+  height: auto;
+  line-height: 100px;
+  text-align: center;
+  color: black;
+}
+
+#descripPrice:hover {
+  text-decoration: none;
+}
