@@ -12,4 +12,6 @@ Rails.application.routes.draw do
     resources :items, except: [:index], shallow: true
   end
 
+  post 'items/:id', to: 'comments#create', as: 'comments'
+
 end
