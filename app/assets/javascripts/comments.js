@@ -15,10 +15,10 @@ $(function() {
     ).done(function(res) {
       if (res.errors) {
         res.errors.forEach(function(err){
-          $('#errors').append('<div>'+err+'</div>');
+          $('#errors').append('<div id="error">'+err+'</div>');
         });
       } else {
-        $('#comments').append('<div>'+res.first_name+': '+res.comment+'</div>');
+        $('#comments').append('<div>'+res.first_name+': '+res.comment+'</div><hr id="commentSep">');
         $('#comment_comment').val("");
       }
     });
