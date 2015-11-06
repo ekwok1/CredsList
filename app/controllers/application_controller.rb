@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
     @item = Item.find params[:id]
     unless session[:user_id] == @item.user.id
       @foo = false
-      redirect_to @user, alert: "Not authorized"
+      redirect_to user_path(@item.user), alert: "Not authorized"
     end
   end
 
