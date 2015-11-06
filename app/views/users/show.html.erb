@@ -2,12 +2,27 @@
   <div class="row">
     <div class="col-xs-2 leftPanel">
       <h3 id="profile">Profile Page</h3>
-      <img src="<%= @user.profilepic_url %>" alt="Profile Picture" class="profilePicture">
-      <div class="firstName"><%= @user.first_name %></div>
-      <div class="lastName"><%= @user.last_name %></div>
-      <div class="sellerRating">stars</div>
-      <div class="buyerRating">stars</div>
+
+      <div id="profilePicture">
+        <img src="<%= @user.profilepic_url %>" alt="Profile Picture" class="profilePicture">
+      </div>
+
+      <div id="userName">Name: </div>
+      <div id="userSellerName">
+        <span><%= @user.first_name %> <%= @user.last_name %></span>
+      </div>
+
+      <div id="userEmail">Email: </div>
+      <div id="userSellerEmail">
+        <span><%= @user.email %></span>
+      </div>
+      
+      <div id="userSellerRating">Seller Stars: </div>
+      
+      <div id="userBuyerRating">Buyer Stars: </div>
+      
       <%= link_to "Edit Profile", edit_user_path(@user) %>
+      
     </div>
     <div class="col-xs-5">
       <div class="activeListings">

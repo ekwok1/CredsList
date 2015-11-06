@@ -12,6 +12,23 @@
   color: black;
 }
 
-#sellerPic {
-  max-height: 200px;
+#profilePicture {
+  padding: 5px;
+}
+.profilePicture {
+  width: 80%;
+  border-radius: 30px;
+}
+
+#userName, #userEmail, #userSellerRating, #userBuyerRating {
+  font-size: 135%;
+  font-weight: bolder;
+  margin-top: 15px;
+}
+#userSellerName {
+  font-size: 125%;
+}
+
+#userBuyerRating {
+  margin-bottom: 125px;
 }
