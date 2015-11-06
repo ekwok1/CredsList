@@ -36,7 +36,7 @@ class ItemsController < ApplicationController
     @item = Item.find params[:id]
     @item.update item_params
     if @item.save
-      redirect_to user_path(@item.user), flash: {success: "Successfully updated listing"}
+      redirect_to user_path(@item.user), notice: "Successfully updated listing"
     else
       render :edit
     end
