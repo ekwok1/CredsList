@@ -21,7 +21,7 @@ class PasswordResetsController < ApplicationController
       # feels like we are missing something here
       # but, have no fear, we are just going to render edit.html.erb
     else
-      redirect_to login_path, alert: "Invalid reset token"
+      redirect_to password_reset_path, alert: "Invalid reset token"
     end
   end
 
