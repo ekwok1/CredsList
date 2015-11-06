@@ -1,12 +1,12 @@
 <div class="container-fluid">
   <h2>Listings</h2>
-
+<hr>
   <div class="col-xs-2">
   </div>
   <div class="col-xs-8">
 
       <% @items.each do |item| %>
-
+    <div class="individualListing">
         <%= link_to item_path(item) do %>
           <div class="row" id="mainRow">
 
@@ -27,11 +27,12 @@
             </div>
 
             <div class="col-xs-9" id="itemPic">
-              <img src="<%= item.pic_url %>" alt="Profile Picture">
+              <img class="imgDimension" src="<%= item.pic_url %>" alt="Profile Picture">
             </div>
-
+            
           </div>
           <% end %>
+          </div>
       <% end %>
 
 
