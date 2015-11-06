@@ -17,9 +17,11 @@ class ApplicationController < ActionController::Base
   end
 
   def ensure_correct_user
+    @foo = true
     @user = User.find session[:user_id]
     @item = Item.find params[:id]
     unless session[:user_id] == @item.user.id
+      @foo = false
       redirect_to @user, alert: "Not authorized"
     end
   end
