@@ -1,0 +1,38 @@
+<div class="container-fluid">
+  <h1>CredsList</h1>
+  <h2 class="login">Sign Up</h2>
+    <% if @user.errors.any? %>
+      <% @user.errors.full_messages.each do |error| %>
+      <div class = "text-danger"><%= error %></div>
+        <% end %>
+    <% end %>
+
+    <%= form_for( @user, url: signup_path) do |f| %>
+      <div class="form-group">
+        <%= f.label :first_name, class: "control-label"%>:
+        <%= f.text_field :first_name, class: "form-control", autofocus:true %>
+      </div>
+      <div class="form-group">
+        <%= f.label :last_name, class: "control-label" %>:
+        <%= f.text_field :last_name, class: "form-control", autofocus:true %>
+      </div>
+      <div class="form-group">
+        <%= f.label :email, class: "control-label"  %>:
+        <%= f.text_field :email, class: "form-control", autofocus:true %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password, class: "control-label"  %>:
+        <%= f.password_field :password, class: "form-control" %>
+      </div>
+      <div class="buttonHolder">
+        <%= f.submit class: "btn btn-primary" %>
+        <%= link_to 'Cancel', :back, class: "btn btn-default" %>
+      </div>
+      <div><%= link_to "Have an account already? Log in here", login_path %></div>
+
+
+    <% end %>
+</div>
+
+
+

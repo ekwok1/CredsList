@@ -1,0 +1,100 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-2 leftPanel">
+      <h3 id="profile">Profile Page</h3>
+
+      <div id="profilePicture">
+        <img src="<%= @user.profilepic_url %>" alt="Profile Picture" class="profilePicture">
+      </div>
+
+      <div id="userName">Name: </div>
+      <div id="userSellerName">
+        <span><%= @user.first_name %> <%= @user.last_name %></span>
+      </div>
+
+      <div id="userEmail">Email: </div>
+      <div id="userSellerEmail">
+        <span><%= @user.email %></span>
+      </div>
+      
+      <div id="userSellerRating">Seller Stars: </div>
+
+      <div id="userBuyerRating">Buyer Stars: </div>
+      
+      <%= link_to "Edit Profile", edit_user_path(@user), class: "btn btn-default" %>
+    </div>
+
+    <div class="col-xs-5">
+      <div class="activeListings">
+        <h1>Item Listings</h1>
+        <% @user.items.each do |item| %>
+          <div class="row">
+            <div class="col-xs-5">
+              <img id="userItemImg" src="<%= item.pic_url %>">
+            </div>
+            <div class="col-xs-4">
+              <div class="row">
+                <div id="userItemName">
+                  <%= link_to item.name, item_path(item) %>
+                </div>
+              </div>
+              <div class="row">
+<!--                 short description -->
+                <%= item.description %>
+              </div>
+              <div class="row">
+                $<%= item.price %>
+              </div>
+            </div>
+            <div class="col-xs-3">
+              <%= link_to 'Edit', edit_item_path(item), class: "btn btn-info" %>
+              <%= link_to 'Destroy',  item,  method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-xs-5">
+      <h1>Transactions</h1>
+      <table class="table table-bordered">
+        <thead>
+          <th>ID</th>
+          <th>Buyer</th>
+          <th>Item</th>
+          <th>Seller Rating</th>
+          <th>Buyer Rating</th>
+        </thead>
+        <tbody>
+        <% @user.txns.each do |txn| %>
+        <!-- need jQuery here. When click on txn id, toggle down to get description -->
+          <tr>
+            <td> <%= txn.id %> </td>
+
+            <% if txn.buyer_id %>
+              <td> <%= User.where(id: txn.buyer_id)[0].first_name %> </td>
+            <% else %>
+              <td> Pending Listing </td>
+            <% end %>
+
+            <td> <%= txn.item.name %> </td>
+
+            <% if txn.seller_rating %>
+              <td> <%= txn.seller_rating %> </td>
+            <% else %>
+              <td> Pending Rating </td>
+            <% end %>
+
+            <% if txn.buyer_rating %>
+              <td> <%= txn.buyer_rating %> </td>
+            <% else %>
+              <td> Pending Rating </td>
+            <% end %>
+          </tr>
+        <%end%>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+

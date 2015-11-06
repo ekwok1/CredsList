@@ -1,0 +1,75 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+h2 {
+  color: #ffffff; 
+  font-size: 60px;
+  font-weight: 800; 
+  line-height: 20px; 
+  margin: 0 0 15px; 
+  text-align: center; 
+  text-transform: uppercase;
+  text-shadow: 0 3px 0 #6FB9EA;
+}
+
+// Left Panel
+.leftPanel {
+  border-right: 2px black solid;
+}
+
+#profile {
+  font-family: 'Raleway', sans-serif;
+  font-weight: bolder;
+}
+
+#profilePicture {
+  padding: 5px;
+}
+.profilePicture {
+  width: 80%;
+  border-radius: 30px;
+}
+
+#userName, #userEmail, #userSellerRating, #userBuyerRating {
+  font-size: 135%;
+  font-weight: bolder;
+  margin-top: 15px;
+  width: 100%;
+}
+#userSellerName {
+  font-size: 125%;
+  width: 100%;
+}
+
+#userBuyerRating {
+  margin-bottom: 125px;
+}
+
+// Middle Panel
+
+#userItemImg {
+  width: 100%;
+}
+
+#userItemName {
+  font-weight: bolder;
+  font-size: 120%;
+}
+
+// Right Panel
+table {
+  font-size: 90%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,31 @@
+<div class="container-fluid">
+  <h2>Edit <%= @user.first_name %>'s Profile</h2>
+  <%= form_for @user do |f| %>
+    <div class="form-group">
+      <%= f.label "first_name" %>:
+      <%= f.text_field "first_name", class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label "last_name" %>:
+      <%= f.text_field "last_name", class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label "email" %>:
+      <%= f.text_field "email", class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label "profilepic_url" %>:
+      <%= f.text_field "profilepic_url", class: "form-control" %>
+    </div>
+    <div class="buttonHolder">
+      <%= f.submit class: "btn btn-primary"%>
+      <%= link_to 'Cancel', :back, class: "btn btn-default" %>
+    </div>
+  <%end%>
+</div>
+
+
+
+
+
+

@@ -1,0 +1,69 @@
+// Place all the styles related to the sessions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+h1 {
+  font-family: redressed;
+  font-size: 50px;
+  text-decoration: underline;
+}
+
+.login {
+  color: #ffffff; 
+  // font-size: 62px; 
+  font-size: 30px;
+  font-weight: 750; 
+  line-height: 20px; 
+  margin: 0 0 15px; 
+  text-align: center; 
+  text-transform: uppercase;
+  text-shadow: 0 3px 0 #6FB9EA;
+}
+
+#mainRow {
+  border-bottom: 5px #304352 solid;
+  margin-bottom: 2px;
+}
+
+#itemName {
+  border-bottom: 3px solid #304352;
+}
+
+#name {
+  font-size: 200%;
+  color: #304352;
+  font-weight: bolder;
+}
+
+#itemName, .vertical-align {
+  word-wrap: break-word;
+}
+
+.descripSeparation {
+  border: 2px solid #304352;
+}
+
+.imgDimension {
+  max-height: 300px;
+}
+
+// makes the hyperlink coloring disappear
+#itemDesc, #itemPrice {
+  margin-top: 2px;
+  margin-bottom: 2px;
+  width: auto;
+  max-height: 250px;
+  text-align: center;
+  color: #304352;
+}
+
+#itemDesc {
+  font-style: italic;
+   border-bottom: #304352 3px solid;
+}
+
+#itemPrice {
+  font-weight: bolder;
+  font-size: 150%;
+}

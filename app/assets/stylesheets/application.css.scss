@@ -1,0 +1,56 @@
+// Import boowatch variables
+@import "bootswatch/cosmo/variables";
+
+// Import bootstrap
+@import "bootstrap";
+
+// Import bootstrap cosmo
+@import "bootswatch/cosmo/bootswatch";
+
+@import "items";
+@import "users";
+@import "sessions";
+@import "comments";
+@import url(https://fonts.googleapis.com/css?family=Dancing+Script:400,700|Redressed);
+
+html {
+  box-sizing: border-box;
+}
+
+.navbar-brand {
+  font-size: 120%;
+}
+
+.navbar {
+  font-family: Redressed;
+  font-size: 120%;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+  background-image:
+    linear-gradient(
+      to right, 
+      #c2e59c,
+      #64b3f4
+    );
+  margin: 0;
+  padding: 0;
+}
+
+form {
+  margin: 0 auto;
+  width: 400px;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.alert {
+  margin-top: -22px;
+}
+
+.text-danger {
+  text-align: center;
+}

@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151103075349) do
+ActiveRecord::Schema.define(version: 20151105222759) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "comment"
+    t.integer  "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "first_name"
+  end
+
+  add_index "comments", ["item_id"], name: "index_comments_on_item_id", using: :btree
 
   create_table "items", force: :cascade do |t|
     t.string   "name"
@@ -46,10 +57,14 @@ ActiveRecord::Schema.define(version: 20151103075349) do
     t.string   "password"
     t.string   "password_digest"
     t.string   "profilepic_url"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "password_reset_token"
   end
 
+  add_foreign_key "comments", "items"
   add_foreign_key "items", "users"
   add_foreign_key "txns", "items"
   add_foreign_key "txns", "users"

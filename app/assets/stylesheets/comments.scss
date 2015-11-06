@@ -1,0 +1,16 @@
+// Place all the styles related to the comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#comments {
+  text-align: left;
+}
+
+.panel {
+  margin-top: 100px;
+}
+
+#error {
+  color: red;
+  font-size: 120%;
+}
