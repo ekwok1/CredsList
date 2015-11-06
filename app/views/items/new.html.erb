@@ -1,5 +1,10 @@
 <div class="container-fluid">
   <h1>New Item</h1>
+    <% if @item.errors.any? %>
+      <% @item.errors.full_messages.each do |error| %>
+      <div class = "text-danger"><%= error %></div>
+        <% end %>
+    <% end %>
   <%= form_for( @item, url: user_items_path) do |f| %>
     <div class="form-group">
         <%= f.label :name%>:
