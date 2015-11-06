@@ -5,6 +5,16 @@ h1, label {
   text-align: center;
 }
 
+h2 {
+  color: #ffffff; 
+  font-size: 60px;
+  font-weight: 800; 
+  line-height: 20px; 
+  margin: 0 0 15px; 
+  text-align: center; 
+  text-transform: uppercase;
+  text-shadow: 0 3px 0 #6FB9EA;
+}
 .btn {
   margin: 5px;
 }
@@ -35,21 +45,17 @@ h1, label {
 }
 
 #sellerInformation {
-  font-size: 190%;
-  font-family: 'Raleway', sans-serif;
-  color: black;
+  font-size: 22px;
+  // font-family: 'Raleway', sans-serif;
+  // color: black;
   font-weight: bolder;
 }
 
-#sellerRating {
-  margin-bottom: 20px;
-  font-size: 130%;
-}
 
-#contactInformation, #acceptedPay {
-  font-size: 140%;
-  font-family: 'Raleway', sans-serif;
-  color: black;
+#contactInformation, #acceptedPay, #sellerRatingTitle {
+  font-size: 18px;
+  // font-family: 'Raleway', sans-serif;
+  // color: black;
   font-weight: bolder;
 }
 
@@ -58,11 +64,11 @@ h1, label {
 }
 
 #sellerName {
-  margin-top: 20px;
+  margin-top: 16px;
 }
 
 #sellerEmail, #sellerName {
-  font-size: 115%;
+  font-size: 16px;
 }
 
 .profilePicture {

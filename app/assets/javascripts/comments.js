@@ -18,9 +18,11 @@ $(function() {
           $('#errors').append('<div>'+err+'</div>');
         });
       } else {
-        $('#comments').prepend('<div>'+res.first_name+': '+res.comment+'</div>');
-        $('#comment_comment').val("");
+        $('.comment-box').prepend('<div>'+res.comment+'</div>');
+        // $('#comment_comment').val("");
       }
     });
   });
 });
+
+// '<div>'+res.first_name+': '+res.comment+'</div>'
