@@ -51,7 +51,7 @@
         
         <%= form_for( @comment, url: item_path(@item), html:{class: "form-horizontal", role: "form"}) do |f| %>
           <div class="form-group">
-            <%= f.label :comment, class: "control-label col-sm-2" %>
+            <%= f.label :comment, "Comments:", class: "control-label col-sm-2" %>
             <%= f.text_field :comment, class: "form-control col-sm-6" %>
             <%= f.text_field :item, class: "form-control col-sm-6 hidden", value: params[:id] %>
             <%= f.text_field :user_id, class: "form-control col-sm-6 hidden", value: @item.user.id %>
@@ -65,7 +65,9 @@
           <% @comments = @item.comments.order(id: :desc) %>
           <% @comments.each do |c| %>
             <% u = User.where(id: c.user_id)[0] %>
+            <div class="comment-box">
             <div><%= u.first_name %>: <%= c.comment %></div>
+            </div>
           <% end %>
         </div>
       </div>
