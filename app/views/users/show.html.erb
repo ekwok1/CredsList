@@ -28,18 +28,28 @@
       <div class="activeListings">
         <h1>Item Listings</h1>
         <% @user.items.each do |item| %>
-          <div><%= link_to item.name, item_path(item) %></div>
-          <div><%= item.description %></div>
-          <div><img src="<%= item.pic_url %>"></div>
-          <div>$<%= item.price %></div>
-          <% if current_user == @user %>
-            <div>
-              <%= link_to 'Edit', edit_item_path(item) %>
-              <%= link_to 'Destroy',  item,  method: :delete, data: { confirm: 'Are you sure?' } %>
+          <div class="row">
+            <div class="col-xs-5">
+              <img id="userItemImg" src="<%= item.pic_url %>">
             </div>
-          <% end %>
-          <br>
-        <%end%>
+            <div class="col-xs-4">
+              <div class="row">
+                <div id="userItemName"><%= item.name %></div>
+              </div>
+              <div class="row">
+<!--                 short description here -->
+                <%= item.description %>
+              </div>
+              <div class="row">
+                $<%= item.price %>
+              </div>
+            </div>
+            <div class="col-xs-3">
+              <%= link_to 'Edit', edit_item_path(item), class: "btn btn-info" %>
+              <%= link_to 'Destroy',  item,  method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
 

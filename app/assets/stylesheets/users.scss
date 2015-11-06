@@ -11,14 +11,15 @@ h2 {
   text-transform: uppercase;
   text-shadow: 0 3px 0 #6FB9EA;
 }
+
+// Left Panel
 .leftPanel {
   border-right: 2px black solid;
 }
 
 #profile {
-  // font-family: 'Raleway', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-weight: bolder;
-
 }
 
 #profilePicture {
@@ -33,11 +34,42 @@ h2 {
   font-size: 135%;
   font-weight: bolder;
   margin-top: 15px;
+  width: 100%;
 }
 #userSellerName {
   font-size: 125%;
+  width: 100%;
 }
 
 #userBuyerRating {
   margin-bottom: 125px;
 }
+
+// Middle Panel
+
+#userItemImg {
+  width: 100%;
+}
+
+#userItemName {
+  font-weight: bolder;
+  font-size: 120%;
+}
+
+// Right Panel
+table {
+  font-size: 90%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
