@@ -34,10 +34,12 @@
             </div>
             <div class="col-xs-4">
               <div class="row">
-                <div id="userItemName"><%= item.name %></div>
+                <div id="userItemName">
+                  <%= link_to item.name, item_path(item) %>
+                </div>
               </div>
               <div class="row">
-<!--                 short description here -->
+<!--                 short description -->
                 <%= item.description %>
               </div>
               <div class="row">
