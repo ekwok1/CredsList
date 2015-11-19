@@ -1,6 +1,8 @@
 class ItemsController < ApplicationController
 
   before_action :confirm_logged_in, except: [:show]
+  before_action :ensure_correct_user, only: [:edit, :destroy]
+
 
   def new
     @item = Item.new
@@ -23,11 +25,11 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find params[:id]
+    @comments = @item.comments.order('id DESC')
     @comment = Comment.new
   end
 
   def edit
-    ensure_correct_user
     @item = Item.find params[:id]
     @user = @item.user
   end
@@ -43,7 +45,6 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    ensure_correct_user
     if @foo 
       @item = Item.find params[:id]
       @item.destroy
@@ -52,7 +53,7 @@ class ItemsController < ApplicationController
   end
 
 
-  private
+private
 
   def item_params
     params.require(:item).permit(:name, :pic_url, :description, :price)

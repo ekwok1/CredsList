@@ -18,7 +18,8 @@ $(function() {
           $('#errors').append('<div id="error">'+err+'</div>');
         });
       } else {
-        $('#comments').append('<div>'+res.first_name+': '+res.comment+'</div><hr id="commentSep">');
+        // Use .prepend instead of .append so the comments are added to the top of the list
+        $('#comments').prepend('<div>'+res.first_name+': '+res.comment+'</div><hr id="commentSep">');
         $('#comment_comment').val("");
       }
     });
