@@ -5,6 +5,3 @@ CredsList is a Ruby on Rails application that allows users to buy and sell items
 * Ruby 2.2.1
 
 * deployed on Heroku: http://credslist.herokuapp.com/
-
-
-<tt>rake doc:app</tt>.
