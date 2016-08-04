@@ -71,10 +71,8 @@
           <h3 class="panel-title">Comments</h3>
         </div>
         <div id="comments" class="panel-body">
-          <% @comments = @item.comments.order(id: :asc) %>
           <% @comments.each do |c| %>
-            <% u = User.where(id: c.user_id)[0] %>
-            <div><%= u.first_name %>: <%= c.comment %></div>
+            <div><%= c.user.first_name %>: <%= c.comment %></div>
             <hr id="commentSep">
           <% end %>
         </div>
